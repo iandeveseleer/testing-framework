@@ -1,13 +1,14 @@
 package fr.iandeveseleer.testingframework.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class TestService {
 
   public String callApi() {
-    // Simulate API call logic
-    System.out.println("Calling API...");
-    return "API response"; // Simulated response
+    log.info("Calling API...");
+    return "API response";
   }
 }

@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 /**
  * Created on 03/10/2024
  **/
-public class FirstClassTest extends AbstractTest {
+public class SecondClassTest extends AbstractTest {
 
   @Test
-  public void firstTest() {
+  public void secondTest() {
     String response = testService.callApi();
     assert response.equals("API response"); // Replace with an appropriate assertion
     System.out.println("Test passed: " + response);
