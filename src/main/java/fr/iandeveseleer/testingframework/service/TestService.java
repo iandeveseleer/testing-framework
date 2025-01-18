@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class TestService {
 
   public String callApi() {
-    log.info("Calling API...");
+    LOGGER.info("Calling API...");
     return "API response";
   }
 }

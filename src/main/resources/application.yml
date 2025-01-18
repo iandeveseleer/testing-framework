@@ -1,0 +1,4 @@
+spring:
+  application:
+    name: "testing-framework"
+debug: true
