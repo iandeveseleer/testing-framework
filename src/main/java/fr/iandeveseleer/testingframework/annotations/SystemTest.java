@@ -8,6 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import fr.iandeveseleer.testingframework.extensions.test.SystemTestExtension;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
@@ -16,6 +17,7 @@ import org.junit.jupiter.api.parallel.Execution;
 @Retention(RetentionPolicy.RUNTIME)
 @Execution(SAME_THREAD)
 @ExtendWith(SystemTestExtension.class)
+@Tag("SystemTest")
 @TestTemplate
 public @interface SystemTest {
 
