@@ -1,6 +1,7 @@
 package fr.iandeveseleer.testingframework.tests.basic;
 
 import fr.iandeveseleer.testingframework.abstracts.AbstractSystemTest;
+import fr.iandeveseleer.testingframework.annotations.SystemTest;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -8,10 +9,10 @@ import org.junit.jupiter.api.Test;
  **/
 public class SecondClassSystemTest extends AbstractSystemTest {
 
-  @Test
+  @SystemTest
   public void secondTest() {
     String response = testService.callApi();
-    assert response.equals("API response"); // Replace with an appropriate assertion
+    assert response.equals("API response");
     System.out.println("Test passed: " + response);
   }
 }

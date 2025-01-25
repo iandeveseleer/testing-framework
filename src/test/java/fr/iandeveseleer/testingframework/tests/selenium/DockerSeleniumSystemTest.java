@@ -1,6 +1,7 @@
 package fr.iandeveseleer.testingframework.tests.selenium;
 
 import fr.iandeveseleer.testingframework.abstracts.AbstractSeleniumSystemTest;
+import fr.iandeveseleer.testingframework.annotations.SystemTest;
 import io.github.bonigarcia.seljup.DockerBrowser;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -10,17 +11,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class DockerSeleniumSystemTest extends AbstractSeleniumSystemTest {
 
-    @Test
+    @SystemTest
     public void testChrome(@DockerBrowser(type = CHROME) WebDriver driver) {
         assertions(driver);
     }
 
-    @Test
+    @SystemTest
     public void testFirefox(@DockerBrowser(type = FIREFOX) WebDriver driver) {
         assertions(driver);
     }
 
-    @Test
+    @SystemTest
     public void testEdge(@DockerBrowser(type = EDGE) WebDriver driver) {
         assertions(driver);
     }
