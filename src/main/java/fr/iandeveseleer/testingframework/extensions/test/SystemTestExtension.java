@@ -39,7 +39,7 @@ public class SystemTestExtension implements TestTemplateInvocationContextProvide
     private static SystemTestRetrier createSystemTestRetrier(ExtensionContext context) {
         return context.getStore(NAMESPACE)
                 .getOrComputeIfAbsent(context.getRequiredTestMethod().toString(),
-                        key -> SystemTestRetrier.createFor(context.getRequiredTestMethod(), context),
+                        key -> SystemTestRetrier.createFor(context.getRequiredTestMethod(), new SystemTestDisplayNameGenerator()),
                         SystemTestRetrier.class);
     }
 }

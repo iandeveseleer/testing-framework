@@ -10,7 +10,7 @@ import org.opentest4j.AssertionFailedError;
  **/
 public class FirstClassSystemTest extends AbstractSystemTest {
 
-  @SystemTest
+  @SystemTest(identifier = "First test with custom identifier")
   public void firstTest() {
     String response = testService.callApi();
     assert response.equals("API response");

@@ -122,6 +122,20 @@
           </compilerArgs>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.5.2</version>
+        <configuration>
+          <groups>SystemTest</groups> <!-- Only run tests -->
+          <properties>
+            <configurationParameters>
+              junit.platform.reporting.open.xml.enabled = true
+              junit.platform.reporting.output.dir = target/surefire-reports
+            </configurationParameters>
+          </properties>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 

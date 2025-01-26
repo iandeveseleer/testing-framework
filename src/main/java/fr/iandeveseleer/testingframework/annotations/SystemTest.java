@@ -8,6 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import fr.iandeveseleer.testingframework.extensions.test.SystemTestExtension;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,4 +22,5 @@ import org.junit.jupiter.api.parallel.Execution;
 @TestTemplate
 public @interface SystemTest {
 
+    String identifier() default StringUtils.EMPTY;
 }
