@@ -1,4 +1,10 @@
+testing:
+  framework:
+    selenium:
+      timeout: 5 # in seconds
+      grid:
+        url: "http://localhost:4444/"
+      docker-mode: false
 spring:
   application:
     name: "testing-framework"
-debug: true

@@ -1,6 +1,8 @@
 package fr.iandeveseleer.testingframework.extensions.test;
 
+import fr.iandeveseleer.testingframework.abstracts.AbstractSeleniumSystemTest;
 import fr.iandeveseleer.testingframework.annotations.SystemTest;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ExtensionContext.Namespace;
 import org.junit.jupiter.api.extension.TestExecutionExceptionHandler;
@@ -8,6 +10,8 @@ import org.junit.jupiter.api.extension.TestTemplateInvocationContext;
 import org.junit.jupiter.api.extension.TestTemplateInvocationContextProvider;
 import org.junit.platform.commons.support.AnnotationSupport;
 
+import java.lang.reflect.Method;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import static java.util.Spliterator.ORDERED;
@@ -25,6 +29,16 @@ public class SystemTestExtension implements TestTemplateInvocationContextProvide
 
     @Override
     public Stream<TestTemplateInvocationContext> provideTestTemplateInvocationContexts(ExtensionContext context) {
+        SystemTest systemTest = context.getTestMethod().get().getAnnotation(SystemTest.class); // NOSONAR : Protected by SystemTestExtension
+        Optional<Method> optionalMethod = context.getTestMethod();
+        Optional<Object> optionalTestInstance = context.getTestInstance();
+
+        if(optionalMethod.isPresent() && optionalTestInstance.isPresent()) {
+            if (StringUtils.isNotEmpty(systemTest.browser()) && !(context.getRequiredTestInstance() instanceof AbstractSeleniumSystemTest)) {
+                throw new IllegalStateException("The browser field can only be valued from a class extending AbstractSeleniumSystemTest");
+            }
+
+        }
         SystemTestRetrier systemTestRetrier = createSystemTestRetrier(context);
         return stream(spliteratorUnknownSize(systemTestRetrier, ORDERED), false);
     }

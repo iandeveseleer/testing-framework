@@ -1,26 +1,29 @@
 package fr.iandeveseleer.testingframework.utils;
 
 import fr.iandeveseleer.testingframework.AppConfig;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.Getter;
+import org.springframework.boot.Banner;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.stereotype.Component;
 
-@Component
 public class ApplicationContextProvider {
 
-  private static ApplicationContext context;
+    @Getter
+    private static ApplicationContext context;
 
-  @Autowired
-  public void setApplicationContext(ApplicationContext applicationContext) {
-    context = applicationContext;
-  }
-
-  public static <T> T getBean(Class<T> beanClass) {
-    // Initialize ApplicationContextProvider (will be used to access services in whole framework)
-    if(context == null) {
-      context = new AnnotationConfigApplicationContext(AppConfig.class);
+    private ApplicationContextProvider() {
+        throw new IllegalStateException("Utility class");
     }
-    return context.getBean(beanClass);
-  }
+
+    public static <T> T getBean(Class<T> beanClass) {
+        // Initialize ApplicationContextProvider (will be used to access services in whole framework)
+        if (context == null) {
+            context = new SpringApplicationBuilder(AppConfig.class)
+                    .bannerMode(Banner.Mode.OFF)
+                    .logStartupInfo(false)
+                    .profiles("systemtests")
+                    .run();
+        }
+        return context.getBean(beanClass);
+    }
 }

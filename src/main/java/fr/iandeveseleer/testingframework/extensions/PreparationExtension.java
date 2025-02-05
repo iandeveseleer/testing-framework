@@ -6,7 +6,7 @@ import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
 @Slf4j
-public class PreparationExtension implements AfterEachCallback, BeforeEachCallback {
+public class PreparationExtension extends AbstractExtension implements AfterEachCallback, BeforeEachCallback {
 
     @Override
     public void afterEach(ExtensionContext context) {

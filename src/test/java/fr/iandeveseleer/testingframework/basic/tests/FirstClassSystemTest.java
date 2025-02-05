@@ -1,4 +1,4 @@
-package fr.iandeveseleer.testingframework.tests.basic;
+package fr.iandeveseleer.testingframework.basic.tests;
 
 import fr.iandeveseleer.testingframework.abstracts.AbstractSystemTest;
 import fr.iandeveseleer.testingframework.annotations.SystemTest;

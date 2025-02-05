@@ -5,21 +5,22 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.3.4</version>
+    <version>3.4.0</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>fr.iandeveseleer</groupId>
   <artifactId>testing-framework</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0-SNAPSHOT</version>
   <name>testing-framework</name>
   <description>A custom testing framework built on Spring Boot and JUnit 5.</description>
 
   <properties>
     <java.version>17</java.version>
-    <spring.boot.version>3.3.4</spring.boot.version>
+    <spring.boot.version>3.4.0</spring.boot.version>
     <junit.version>5.11.2</junit.version>
     <selenium-jupiter.version>5.1.1</selenium-jupiter.version>
     <selenium-java.version>4.27.0</selenium-java.version>
+    <webdrivermanager.version>5.9.2</webdrivermanager.version>
   </properties>
 
   <dependencyManagement>
@@ -44,7 +45,7 @@
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
+      <artifactId>spring-boot-starter</artifactId>
     </dependency>
 
     <!-- Spring Boot Starter Test -->
@@ -76,8 +77,8 @@
     </dependency>
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
-      <artifactId>selenium-jupiter</artifactId>
-      <version>${selenium-jupiter.version}</version>
+      <artifactId>webdrivermanager</artifactId>
+      <version>${webdrivermanager.version}</version>
     </dependency>
 
     <!-- Others -->
@@ -116,27 +117,8 @@
               <version>${lombok.version}</version>
             </path>
           </annotationProcessorPaths>
-          <compilerArgs>
-            <arg>-sourcepath</arg>
-            <arg>${project.basedir}/src/main/java${path.separator}${project.basedir}/target/generated-sources/annotations${path.separator}/</arg>
-          </compilerArgs>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.5.2</version>
-        <configuration>
-          <groups>SystemTest</groups> <!-- Only run tests -->
-          <properties>
-            <configurationParameters>
-              junit.platform.reporting.open.xml.enabled = true
-              junit.platform.reporting.output.dir = target/surefire-reports
-            </configurationParameters>
-          </properties>
         </configuration>
       </plugin>
     </plugins>
   </build>
-
 </project>

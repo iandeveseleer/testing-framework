@@ -1,4 +1,4 @@
-package fr.iandeveseleer.testingframework.tests;
+package fr.iandeveseleer.testingframework.basic.tests;
 
 import org.junit.jupiter.api.Test;
 

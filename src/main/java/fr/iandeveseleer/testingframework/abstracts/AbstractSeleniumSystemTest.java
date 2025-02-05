@@ -1,9 +1,13 @@
 package fr.iandeveseleer.testingframework.abstracts;
 
-import io.github.bonigarcia.seljup.SeleniumJupiter;
+import fr.iandeveseleer.testingframework.extensions.SeleniumExtension;
+import lombok.Getter;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.openqa.selenium.WebDriver;
 
-@ExtendWith(SeleniumJupiter.class)
+@ExtendWith(SeleniumExtension.class)
 public abstract class AbstractSeleniumSystemTest extends AbstractSystemTest {
 
+    @Getter
+    private WebDriver driver;
 }
