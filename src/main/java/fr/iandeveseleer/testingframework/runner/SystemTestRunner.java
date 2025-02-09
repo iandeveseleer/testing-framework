@@ -8,7 +8,7 @@ import org.junit.platform.suite.api.IncludeTags;
 
 @Slf4j
 @IncludeTags("SystemTest")
-@IncludeClassNamePatterns(".*SystemTest$")
+@IncludeClassNamePatterns(".*SystemTests$")
 public abstract class SystemTestRunner {
 
     @BeforeSuite

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 
 @ExtendWith(SeleniumExtension.class)
-public abstract class AbstractSeleniumSystemTest extends AbstractSystemTest {
+public abstract class AbstractSeleniumSystemTests extends AbstractSystemTests {
 
     @Getter
     private WebDriver driver;

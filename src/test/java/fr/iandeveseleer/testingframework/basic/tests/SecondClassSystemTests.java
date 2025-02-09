@@ -1,12 +1,12 @@
 package fr.iandeveseleer.testingframework.basic.tests;
 
-import fr.iandeveseleer.testingframework.abstracts.AbstractSystemTest;
+import fr.iandeveseleer.testingframework.abstracts.AbstractSystemTests;
 import fr.iandeveseleer.testingframework.annotations.SystemTest;
 
 /**
  * Created on 03/10/2024
  **/
-public class SecondClassSystemTest extends AbstractSystemTest {
+public class SecondClassSystemTests extends AbstractSystemTests {
 
   @SystemTest
   public void secondTest() {

@@ -4,7 +4,7 @@ import fr.iandeveseleer.testingframework.annotations.SystemTest;
 import fr.iandeveseleer.testingframework.selenium.abstracts.AbstractSeleniumTesting;
 import org.junit.jupiter.api.Disabled;
 
-public class SeleniumOnEdgeSystemTest extends AbstractSeleniumTesting {
+public class SeleniumOnEdgeSystemTests extends AbstractSeleniumTesting {
 
     @SystemTest(browser = "MicrosoftEdge")
     @Disabled("WIP - Edge is not working")

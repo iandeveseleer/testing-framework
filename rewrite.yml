@@ -1,0 +1,12 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: fr.iandeveseleer.openrewrite.recipes.Selenium
+displayName: Migrate to best practice of Selenium
+description: This recipe will apply changes to match best practices of Selenium.
+tags:
+  - testing
+  - selenium
+recipeList:
+  - fr.iandeveseleer.openrewrite.recipes.selenium.AddFindByWebElement:
+      fullyQualifiedClassName: fr.iandeveseleer.testingframework.selenium.pages.elements.BaseElement
+      returnCalledMethodInvocation: el

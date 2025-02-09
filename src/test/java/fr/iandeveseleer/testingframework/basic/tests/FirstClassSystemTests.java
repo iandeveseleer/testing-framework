@@ -1,6 +1,6 @@
 package fr.iandeveseleer.testingframework.basic.tests;
 
-import fr.iandeveseleer.testingframework.abstracts.AbstractSystemTest;
+import fr.iandeveseleer.testingframework.abstracts.AbstractSystemTests;
 import fr.iandeveseleer.testingframework.annotations.SystemTest;
 import org.junit.jupiter.api.Test;
 import org.opentest4j.AssertionFailedError;
@@ -8,7 +8,7 @@ import org.opentest4j.AssertionFailedError;
 /**
  * Created on 03/10/2024
  **/
-public class FirstClassSystemTest extends AbstractSystemTest {
+public class FirstClassSystemTests extends AbstractSystemTests {
 
   @SystemTest(identifier = "First test with custom identifier")
   public void firstTest() {

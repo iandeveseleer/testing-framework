@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayNameGeneration;
 
 @ExtensionChain
 @DisplayNameGeneration(SystemTestDisplayNameGenerator.class)
-public abstract class AbstractSystemTest {
+public abstract class AbstractSystemTests {
 
     protected TestService testService = ApplicationContextProvider.getBean(TestService.class);
 }

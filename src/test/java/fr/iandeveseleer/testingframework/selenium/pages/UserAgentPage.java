@@ -1,17 +1,14 @@
 package fr.iandeveseleer.testingframework.selenium.pages;
 
-import fr.iandeveseleer.testingframework.selenium.pages.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import fr.iandeveseleer.testingframework.annotations.ElementName;
+import fr.iandeveseleer.testingframework.selenium.pages.elements.BaseElement;
+import lombok.Getter;
+import org.openqa.selenium.support.FindBy;
 
 public class UserAgentPage extends BasePage {
 
-    public UserAgentPage(WebDriver pWebDriver) {
-        super(pWebDriver);
-    }
-
-    public WebElement getUserAgent() {
-        return el(By.cssSelector("div.row:nth-child(6) > div:nth-child(2)"), "Field containing browser name");
-    }
+    @Getter
+    @FindBy(using = "ua")
+    @ElementName("User agent chain element")
+    private BaseElement userAgentChain;
 }
