@@ -1,6 +1,8 @@
 package fr.iandeveseleer.testingframework.selenium.tests;
 
+import fr.iandeveseleer.testingframework.annotations.Browser;
 import fr.iandeveseleer.testingframework.annotations.SystemTest;
+import fr.iandeveseleer.testingframework.enums.BrowserType;
 import fr.iandeveseleer.testingframework.selenium.abstracts.AbstractSeleniumTesting;
 
 public class SeleniumOnChromeSystemTests extends AbstractSeleniumTesting {
@@ -10,7 +12,8 @@ public class SeleniumOnChromeSystemTests extends AbstractSeleniumTesting {
         assertions("CHROME");
     }
 
-    @SystemTest(browser = "CHROME")
+    @SystemTest()
+    @Browser(BrowserType.CHROME)
     public void testChrome2() {
         assertions("CHROME");
     }

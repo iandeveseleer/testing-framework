@@ -1,6 +1,7 @@
 package fr.iandeveseleer.testingframework.extensions.test;
 
 import fr.iandeveseleer.testingframework.abstracts.AbstractSeleniumSystemTests;
+import fr.iandeveseleer.testingframework.annotations.Browser;
 import fr.iandeveseleer.testingframework.annotations.SystemTest;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -33,8 +34,9 @@ public class SystemTestExtension implements TestTemplateInvocationContextProvide
         Optional<Method> optionalMethod = context.getTestMethod();
         Optional<Object> optionalTestInstance = context.getTestInstance();
 
+        Browser browserAnnotation = context.getTestMethod().get().getAnnotation(Browser.class); // NOSONAR : Protected by SystemTestExtension
         if(optionalMethod.isPresent() && optionalTestInstance.isPresent()) {
-            if (StringUtils.isNotEmpty(systemTest.browser()) && !(context.getRequiredTestInstance() instanceof AbstractSeleniumSystemTests)) {
+            if (browserAnnotation.value() != null && !(context.getRequiredTestInstance() instanceof AbstractSeleniumSystemTests)) {
                 throw new IllegalStateException("The browser field can only be valued from a class extending AbstractSeleniumSystemTest");
             }
 

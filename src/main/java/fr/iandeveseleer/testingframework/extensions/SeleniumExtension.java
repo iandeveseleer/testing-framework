@@ -1,8 +1,10 @@
 package fr.iandeveseleer.testingframework.extensions;
 
 import fr.iandeveseleer.testingframework.abstracts.AbstractSeleniumSystemTests;
+import fr.iandeveseleer.testingframework.annotations.Browser;
 import fr.iandeveseleer.testingframework.annotations.Page;
 import fr.iandeveseleer.testingframework.annotations.SystemTest;
+import fr.iandeveseleer.testingframework.enums.BrowserType;
 import fr.iandeveseleer.testingframework.selenium.pages.BaseElementDecorator;
 import fr.iandeveseleer.testingframework.service.driver.DriverService;
 import fr.iandeveseleer.testingframework.utils.ApplicationContextProvider;
@@ -50,12 +52,12 @@ public class SeleniumExtension extends AbstractExtension implements BeforeEachCa
     }
 
     private DesiredCapabilities prepareCapabilities(ExtensionContext pTestExecutionContext) {
-        SystemTest systemTestAnnotation = AnnotationSupport.findAnnotation(pTestExecutionContext.getRequiredTestMethod(), SystemTest.class).get(); // NOSONAR : Protected by SystemTestExtension
+        Browser browserAnnotation = AnnotationSupport.findAnnotation(pTestExecutionContext.getRequiredTestMethod(), Browser.class).get(); // NOSONAR : Protected by SystemTestExtension
 
-        String desiredBrowser = systemTestAnnotation.browser().toLowerCase();
+        BrowserType desiredBrowser = browserAnnotation.value();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         // Default to CHROME
-        capabilities.setBrowserName(StringUtils.isNotEmpty(desiredBrowser) ? desiredBrowser : "chrome");
+        capabilities.setBrowserName(desiredBrowser != null ? desiredBrowser.getCapabilityName() : "chrome");
         return capabilities;
     }
 

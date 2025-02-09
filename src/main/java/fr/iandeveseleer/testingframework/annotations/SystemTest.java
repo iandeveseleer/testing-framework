@@ -23,6 +23,4 @@ import org.junit.jupiter.api.parallel.Execution;
 public @interface SystemTest {
 
     String identifier() default StringUtils.EMPTY;
-
-    String browser() default StringUtils.EMPTY;
 }
