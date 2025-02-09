@@ -20,7 +20,7 @@
     <spring.boot.version>3.4.0</spring.boot.version>
     <junit.version>5.11.2</junit.version>
     <selenium-jupiter.version>5.1.1</selenium-jupiter.version>
-    <selenium-java.version>4.27.0</selenium-java.version>
+    <selenium-java.version>4.28.0</selenium-java.version>
     <webdrivermanager.version>5.9.2</webdrivermanager.version>
     <openrewrite-recipes.version>1.0-SNAPSHOT</openrewrite-recipes.version>
     <rewrite-maven-plugin.version>6.1.0</rewrite-maven-plugin.version>
